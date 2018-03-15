@@ -18,6 +18,13 @@ class ADungeonRoom_CppCharacter : public ACharacter
 	/** Follow camera */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 	class UCameraComponent* FollowCamera;
+
+	//Component to attach held objects to.
+	UPROPERTY(EditAnywhere)
+		USceneComponent* holdingPoint = nullptr;
+
+	FHitResult hit;
+
 public:
 	ADungeonRoom_CppCharacter();
 
@@ -30,6 +37,16 @@ public:
 	float BaseLookUpRate;
 
 protected:
+
+	void Use();
+
+	void StopUsing();
+
+	void LineTrace();
+
+	void PickupObject();
+
+	void DropObject();
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();

@@ -12,6 +12,11 @@ AMaster_Pickup::AMaster_Pickup()
 
 	//Adds the actual mesh
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DefaultMesh"));
+	RootComponent = mesh;
+
+	mesh->SetMobility(EComponentMobility::Movable);
+	mesh->SetSimulatePhysics(true);
+
 
 	/*RootComponent = mesh;
 	mesh->SetupAttachment(RootComponent);

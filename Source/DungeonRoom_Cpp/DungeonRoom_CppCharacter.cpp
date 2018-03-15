@@ -9,6 +9,9 @@
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
 
+#include "I_Pickupable.h"
+#include "DrawDebugHelpers.h"
+
 //////////////////////////////////////////////////////////////////////////
 // ADungeonRoom_CppCharacter
 
@@ -43,6 +46,10 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false; // Camera does not rotate relative to arm
 
+	//Holding point
+	holdingPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Holding Point"));
+	holdingPoint->SetupAttachment(RootComponent);
+
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 }
@@ -56,6 +63,9 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 	check(PlayerInputComponent);
 	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
+
+	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &ADungeonRoom_CppCharacter::Use);
+	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ADungeonRoom_CppCharacter::StopUsing);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ADungeonRoom_CppCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ADungeonRoom_CppCharacter::MoveRight);
@@ -77,6 +87,71 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 }
 
 
+void ADungeonRoom_CppCharacter::Use()
+{
+	LineTrace();
+}
+
+void ADungeonRoom_CppCharacter::StopUsing()
+{
+	DropObject();
+}
+
+void ADungeonRoom_CppCharacter::PickupObject()
+{
+	hit.GetComponent()->SetSimulatePhysics(false);
+	hit.GetActor()->AttachToComponent(holdingPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+}
+
+void ADungeonRoom_CppCharacter::DropObject()
+{
+	if (hit.GetActor())
+	{
+		hit.GetActor()->DetachRootComponentFromParent();
+		hit.GetComponent()->SetSimulatePhysics(true);
+	}
+}
+
+///Source: https://youtu.be/r5YSy94GV_4
+void ADungeonRoom_CppCharacter::LineTrace()
+{
+	//Ignore the player.
+	FCollisionQueryParams myCollisionParams;
+	myCollisionParams.AddIgnoredComponent(GetCapsuleComponent());
+
+	//Setup for Linetrace
+	float traceDistance = 500.0f;
+	FColor traceColor = FColor::Red;
+	FVector startVector = GetCapsuleComponent()->GetComponentLocation();
+	FVector endVector = startVector + (FollowCamera->GetForwardVector() * traceDistance);
+
+	//Actual Linetrace
+	GetWorld()->LineTraceSingleByChannel(hit, startVector, endVector, ECC_Pawn, myCollisionParams);
+
+
+	II_Pickupable* implementsPickup = Cast<II_Pickupable>(hit.GetActor());
+
+	//If hitting, change position of endVector
+	if (hit.bBlockingHit && implementsPickup)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Yah, we hit da maaaan!"));
+
+		traceColor = FColor::Blue;
+		endVector = hit.Location;
+
+		PickupObject();
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Not hit maaaan."));
+	}
+
+	//Visual representation of Linetrace
+	DrawDebugLine(GetWorld(), hit.TraceStart, endVector, traceColor, false, 10.0f, 0, 10.0f);
+}
+
+
+
 void ADungeonRoom_CppCharacter::OnResetVR()
 {
 	UHeadMountedDisplayFunctionLibrary::ResetOrientationAndPosition();
@@ -84,12 +159,12 @@ void ADungeonRoom_CppCharacter::OnResetVR()
 
 void ADungeonRoom_CppCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		Jump();
+	Jump();
 }
 
 void ADungeonRoom_CppCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		StopJumping();
+	StopJumping();
 }
 
 void ADungeonRoom_CppCharacter::TurnAtRate(float Rate)
@@ -120,12 +195,12 @@ void ADungeonRoom_CppCharacter::MoveForward(float Value)
 
 void ADungeonRoom_CppCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
