@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "MyCppActor.h"
 #include "TriggerPlate.generated.h"
 
 class UBoxComponent;
@@ -20,6 +21,14 @@ public:
 
 	UPROPERTY(EditAnywhere)
 		UBoxComponent* trigger = nullptr;
+
+	UPROPERTY(EditAnywhere)
+		AActor* door = nullptr;
+		//TODO: Reference instead to my script for moving a door.
+		//AMyCppActor* door = nullptr;
+
+	float currentPressure;
+	float requiredPressure = 3.0f;
 
 protected:
 	// Called when the game starts or when spawned
@@ -44,4 +53,8 @@ public:
 			AActor* OtherActor,
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
+
+	void OpenDoor();
+
+	void CloseDoor();
 };

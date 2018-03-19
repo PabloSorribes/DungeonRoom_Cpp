@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 
 #include "I_Pickupable.h"
+
 #include "DrawDebugHelpers.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -78,6 +79,11 @@ void ADungeonRoom_CppCharacter::RotationControl()
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationYaw = false;
 	bUseControllerRotationRoll = false;
+}
+
+float ADungeonRoom_CppCharacter::GetObjectWeight_Implementation()
+{
+	return 1.0f;
 }
 
 //////////////////////////////////////////////////////////////////////////

@@ -4,10 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "I_Weight.h"
 #include "DungeonRoom_CppCharacter.generated.h"
 
 UCLASS(config = Game)
-class ADungeonRoom_CppCharacter : public ACharacter
+class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 {
 	GENERATED_BODY()
 
@@ -45,6 +46,10 @@ public:
 	/** Base look up/down rate, in deg/sec. Other scaling may affect final rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera)
 		float BaseLookUpRate;
+
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interface")
+		float GetObjectWeight();
+	virtual float GetObjectWeight_Implementation()override;
 
 protected:
 
