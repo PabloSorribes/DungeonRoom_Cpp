@@ -18,8 +18,10 @@ ATriggerPlate::ATriggerPlate()
 	trigger->SetupAttachment(mesh);
 	trigger->bGenerateOverlapEvents = true;
 	trigger->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
-	trigger->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	trigger->OnComponentBeginOverlap.AddDynamic(this, &ATriggerPlate::OnOverlapBegin);
+
+	FName collisionPreset = "Trigger";
+	trigger->SetCollisionProfileName(collisionPreset);
 }
 
 // Called when the game starts or when spawned

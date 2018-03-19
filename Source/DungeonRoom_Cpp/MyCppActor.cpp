@@ -17,10 +17,6 @@ AMyCppActor::AMyCppActor()
 	trigger->bGenerateOverlapEvents = true;
 	trigger->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	trigger->OnComponentBeginOverlap.AddDynamic(this, &AMyCppActor::OnOverlapBegin);
-
-	FName collisionPreset = "Trigger";
-
-	trigger->SetCollisionProfileName(collisionPreset);
 }
 
 // Called when the game starts or when spawned
