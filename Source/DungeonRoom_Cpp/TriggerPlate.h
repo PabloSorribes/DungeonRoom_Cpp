@@ -30,5 +30,17 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
-		void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
+		void OnOverlapBegin(
+			UPrimitiveComponent* OverlappedComp, 
+			AActor* OtherActor, 
+			UPrimitiveComponent* OtherComp, 
+			int32 OtherBodyIndex, 
+			bool bFromSweep, 
+			const FHitResult& SweepResult);
+
+	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
+		void OnOverlapEnd(UPrimitiveComponent* OverlappedComp,
+			AActor* OtherActor,
+			UPrimitiveComponent* OtherComp,
+			int32 OtherBodyIndex);
 };

@@ -19,6 +19,7 @@ ATriggerPlate::ATriggerPlate()
 	trigger->bGenerateOverlapEvents = true;
 	trigger->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	trigger->OnComponentBeginOverlap.AddDynamic(this, &ATriggerPlate::OnOverlapBegin);
+	trigger->OnComponentEndOverlap.AddDynamic(this, &ATriggerPlate::OnOverlapEnd);
 
 	FName collisionPreset = "Trigger";
 	trigger->SetCollisionProfileName(collisionPreset);
@@ -41,4 +42,10 @@ void ATriggerPlate::Tick(float DeltaTime)
 void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Entering trigger"));
+}
+
+void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Exiting trigger"));
+
 }
