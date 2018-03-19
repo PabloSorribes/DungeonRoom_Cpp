@@ -52,6 +52,8 @@ protected:
 
 	void StopUsing();
 
+	void Throw();
+
 	void LineTrace();
 
 	void PickupObject();

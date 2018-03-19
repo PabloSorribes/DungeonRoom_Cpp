@@ -91,7 +91,9 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &ADungeonRoom_CppCharacter::Use);
-	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ADungeonRoom_CppCharacter::StopUsing);
+	PlayerInputComponent->BindAction("Use", IE_Released, this, &ADungeonRoom_CppCharacter::StopUsing);
+
+	PlayerInputComponent->BindAction("Throw", IE_Pressed, this, &ADungeonRoom_CppCharacter::Throw);
 
 	PlayerInputComponent->BindAxis("MoveForward", this, &ADungeonRoom_CppCharacter::MoveForward);
 	PlayerInputComponent->BindAxis("MoveRight", this, &ADungeonRoom_CppCharacter::MoveRight);
@@ -121,6 +123,11 @@ void ADungeonRoom_CppCharacter::Use()
 void ADungeonRoom_CppCharacter::StopUsing()
 {
 	DropObject();
+}
+
+void ADungeonRoom_CppCharacter::Throw()
+{
+
 }
 
 void ADungeonRoom_CppCharacter::PickupObject()
