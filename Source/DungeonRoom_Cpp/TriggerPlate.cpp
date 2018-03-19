@@ -1,5 +1,6 @@
 #include "TriggerPlate.h"
 #include "Components/StaticMeshComponent.h"
+#include "Components/BoxComponent.h"
 
 
 
@@ -13,7 +14,12 @@ ATriggerPlate::ATriggerPlate()
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DefaultMesh"));
 	RootComponent = mesh;
 
-	//trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("MahTrigger"));
+	trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger"));
+	trigger->SetupAttachment(mesh);
+	trigger->bGenerateOverlapEvents = true;
+	trigger->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
+	trigger->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
+	trigger->OnComponentBeginOverlap.AddDynamic(this, &ATriggerPlate::OnOverlapBegin);
 }
 
 // Called when the game starts or when spawned
@@ -30,3 +36,7 @@ void ATriggerPlate::Tick(float DeltaTime)
 
 }
 
+void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
+{
+	UE_LOG(LogTemp, Warning, TEXT("Entering trigger"));
+}

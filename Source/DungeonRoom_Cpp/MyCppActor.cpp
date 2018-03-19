@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #include "MyCppActor.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
@@ -19,6 +17,10 @@ AMyCppActor::AMyCppActor()
 	trigger->bGenerateOverlapEvents = true;
 	trigger->SetCollisionResponseToAllChannels(ECollisionResponse::ECR_Block);
 	trigger->OnComponentBeginOverlap.AddDynamic(this, &AMyCppActor::OnOverlapBegin);
+
+	FName collisionPreset = "Trigger";
+
+	trigger->SetCollisionProfileName(collisionPreset);
 }
 
 // Called when the game starts or when spawned
