@@ -15,7 +15,7 @@
 //////////////////////////////////////////////////////////////////////////
 // ADungeonRoom_CppCharacter
 
-// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
+// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character)
 // are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
@@ -49,13 +49,13 @@ void ADungeonRoom_CppCharacter::CreateCameraBoom()
 {
 	CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
 	CameraBoom->SetupAttachment(RootComponent);
-	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character	
+	CameraBoom->TargetArmLength = 300.0f; // The camera follows at this distance behind the character
 	CameraBoom->bUsePawnControlRotation = true; // Rotate the arm based on the controller
 }
 
 void ADungeonRoom_CppCharacter::ConfigureCharacterMovement()
 {
-	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...	
+	GetCharacterMovement()->bOrientRotationToMovement = true; // Character moves in the direction of input...
 	GetCharacterMovement()->RotationRate = FRotator(0.0f, 540.0f, 0.0f); // ...at this rotation rate
 	GetCharacterMovement()->JumpZVelocity = 600.f;
 	GetCharacterMovement()->AirControl = 0.2f;
@@ -70,8 +70,8 @@ void ADungeonRoom_CppCharacter::InputTurnRate()
 	BaseLookUpRate = 45.f;
 }
 
-///<summary> 
-/// Don't rotate when the controller rotates. Let that just affect the camera. 
+///<summary>
+/// Don't rotate when the controller rotates. Let that just affect the camera.
 ///</summary>
 void ADungeonRoom_CppCharacter::RotationControl()
 {
@@ -113,7 +113,6 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 	// VR headset functionality
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADungeonRoom_CppCharacter::OnResetVR);
 }
-
 
 void ADungeonRoom_CppCharacter::Use()
 {
@@ -166,7 +165,6 @@ void ADungeonRoom_CppCharacter::LineTrace()
 	//Actual Linetrace
 	GetWorld()->LineTraceSingleByChannel(hit, startVector, endVector, ECC_Pawn, myCollisionParams);
 
-
 	II_Pickupable* implementsPickup = Cast<II_Pickupable>(hit.GetActor());
 
 	//If hitting, change position of endVector
@@ -187,8 +185,6 @@ void ADungeonRoom_CppCharacter::LineTrace()
 	//Visual representation of Linetrace
 	DrawDebugLine(GetWorld(), hit.TraceStart, endVector, traceColor, false, 10.0f, 0, 10.0f);
 }
-
-
 
 void ADungeonRoom_CppCharacter::OnResetVR()
 {
@@ -239,7 +235,7 @@ void ADungeonRoom_CppCharacter::MoveRight(float Value)
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// get right vector 
+		// get right vector
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
 		AddMovementInput(Direction, Value);

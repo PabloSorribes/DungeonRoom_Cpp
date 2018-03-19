@@ -2,7 +2,6 @@
 
 #include "WeightBlock.h"
 
-
 // Sets default values
 AWeightBlock::AWeightBlock()
 {
