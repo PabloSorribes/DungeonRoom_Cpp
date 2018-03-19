@@ -47,5 +47,4 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex)
 {
 	UE_LOG(LogTemp, Warning, TEXT("Exiting trigger"));
-
 }

@@ -39,7 +39,8 @@ public:
 			const FHitResult& SweepResult);
 
 	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
-		void OnOverlapEnd(UPrimitiveComponent* OverlappedComp,
+		void OnOverlapEnd(
+			UPrimitiveComponent* OverlappedComp,
 			AActor* OtherActor,
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
