@@ -127,7 +127,12 @@ void ADungeonRoom_CppCharacter::StopUsing()
 
 void ADungeonRoom_CppCharacter::Throw()
 {
+	DropObject();
 
+	float throwMultiplication = 1000.0f;
+	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication;
+
+	hit.GetComponent()->AddImpulse(impulseDirection, NAME_None, true);
 }
 
 void ADungeonRoom_CppCharacter::PickupObject()
