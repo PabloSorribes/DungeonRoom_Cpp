@@ -28,6 +28,16 @@ class ADungeonRoom_CppCharacter : public ACharacter
 public:
 	ADungeonRoom_CppCharacter();
 
+	void CreateFollowCamera();
+
+	void CreateCameraBoom();
+
+	void ConfigureCharacterMovement();
+
+	void InputTurnRate();
+
+	void RotationControl();
+
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Camera)
 	float BaseTurnRate;
