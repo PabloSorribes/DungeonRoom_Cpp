@@ -23,7 +23,6 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 	// Set size for collision capsule
 	GetCapsuleComponent()->InitCapsuleSize(42.f, 96.0f);
 
-	
 	InputTurnRate();
 	RotationControl();
 	ConfigureCharacterMovement();
@@ -43,7 +42,8 @@ void ADungeonRoom_CppCharacter::CreateFollowCamera()
 }
 
 ///<summary>
-/// Create a camera boom (pulls in towards the player if there is a collision)
+/// Create a camera boom (pulls in towards the player if there is a collision).
+///<remarks> This is a remark </remarks>
 ///</summary>
 void ADungeonRoom_CppCharacter::CreateCameraBoom()
 {

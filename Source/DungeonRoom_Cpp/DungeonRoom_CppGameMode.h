@@ -14,6 +14,3 @@ class ADungeonRoom_CppGameMode : public AGameModeBase
 public:
 	ADungeonRoom_CppGameMode();
 };
-
-
-

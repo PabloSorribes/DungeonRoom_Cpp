@@ -3,5 +3,4 @@
 #include "DungeonRoom_Cpp.h"
 #include "Modules/ModuleManager.h"
 
-IMPLEMENT_PRIMARY_GAME_MODULE( FDefaultGameModuleImpl, DungeonRoom_Cpp, "DungeonRoom_Cpp" );
- 
+IMPLEMENT_PRIMARY_GAME_MODULE(FDefaultGameModuleImpl, DungeonRoom_Cpp, "DungeonRoom_Cpp");
