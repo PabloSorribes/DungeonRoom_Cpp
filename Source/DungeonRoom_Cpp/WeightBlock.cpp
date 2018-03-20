@@ -13,7 +13,7 @@ AWeightBlock::AWeightBlock()
 	PrimaryActorTick.bCanEverTick = true;
 
 
-	//mesh->SetSimulatePhysics(true);
+	mesh->SetSimulatePhysics(true);
 	//myMesh->SetSimulatePhysics(true);
 }
 
