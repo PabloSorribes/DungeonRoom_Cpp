@@ -2,6 +2,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/BoxComponent.h"
 #include "I_Weight.h"
+#include "MovingWall.h"
 
 
 
@@ -31,6 +32,7 @@ void ATriggerPlate::BeginPlay()
 {
 	Super::BeginPlay();
 
+	//startPosition = GetActorTransform().GetLocation();
 }
 
 // Called every frame
@@ -52,7 +54,7 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 		if (currentPressure >= requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Weight is success!"));
-			//TODO: Open door here.
+			door->OpenDoor();
 		}
 	}
 }
@@ -65,7 +67,18 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 	if (OtherActor->Implements<UI_Weight>())
 	{
 		currentPressure -= II_Weight::Execute_GetObjectWeight(OtherActor);
+		if (currentPressure < 0)
+		{
+			currentPressure = 0;
+		}
+
 		UE_LOG(LogTemp, Warning, TEXT("CurrentPressure: %f. RequiredPressure: %f"), currentPressure, requiredPressure);
+
+		if (currentPressure < requiredPressure)
+		{
+			UE_LOG(LogTemp, Warning, TEXT("Too little pressure!"));
+			door->CloseDoor();
+		}
 	}
 }
 

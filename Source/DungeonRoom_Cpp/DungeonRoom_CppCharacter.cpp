@@ -10,7 +10,6 @@
 #include "GameFramework/SpringArmComponent.h"
 
 #include "I_Pickupable.h"
-
 #include "DrawDebugHelpers.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -125,36 +124,6 @@ void ADungeonRoom_CppCharacter::Use()
 	LineTrace();
 }
 
-void ADungeonRoom_CppCharacter::StopUsing()
-{
-	DropObject();
-}
-
-void ADungeonRoom_CppCharacter::Throw()
-{
-	DropObject();
-
-	float throwMultiplication = 1000.0f;
-	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication;
-
-	hit.GetComponent()->AddImpulse(impulseDirection, NAME_None, true);
-}
-
-void ADungeonRoom_CppCharacter::PickupObject()
-{
-	hit.GetComponent()->SetSimulatePhysics(false);
-	hit.GetActor()->AttachToComponent(holdingPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
-}
-
-void ADungeonRoom_CppCharacter::DropObject()
-{
-	if (hit.GetActor())
-	{
-		hit.GetActor()->DetachRootComponentFromParent();
-		hit.GetComponent()->SetSimulatePhysics(true);
-	}
-}
-
 ///Source: https://youtu.be/r5YSy94GV_4
 void ADungeonRoom_CppCharacter::LineTrace()
 {
@@ -171,6 +140,7 @@ void ADungeonRoom_CppCharacter::LineTrace()
 	//Actual Linetrace
 	GetWorld()->LineTraceSingleByChannel(hit, startVector, endVector, ECC_Pawn, myCollisionParams);
 
+	//Get a bool/result to use (true if the object has the Pickup-interface.
 	II_Pickupable* implementsPickup = Cast<II_Pickupable>(hit.GetActor());
 
 	//If hitting, change position of endVector
@@ -191,6 +161,38 @@ void ADungeonRoom_CppCharacter::LineTrace()
 	//Visual representation of Linetrace
 	DrawDebugLine(GetWorld(), hit.TraceStart, endVector, traceColor, false, 10.0f, 0, 10.0f);
 }
+
+void ADungeonRoom_CppCharacter::PickupObject()
+{
+	hit.GetComponent()->SetSimulatePhysics(false);
+	hit.GetActor()->AttachToComponent(holdingPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+}
+
+void ADungeonRoom_CppCharacter::StopUsing()
+{
+	DropObject();
+}
+
+
+void ADungeonRoom_CppCharacter::DropObject()
+{
+	if (hit.GetActor())
+	{
+		hit.GetActor()->DetachRootComponentFromParent();
+		hit.GetComponent()->SetSimulatePhysics(true);
+	}
+}
+
+void ADungeonRoom_CppCharacter::Throw()
+{
+	DropObject();
+
+	float throwMultiplication = 1000.0f;
+	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication;
+
+	hit.GetComponent()->AddImpulse(impulseDirection, NAME_None, true);
+}
+
 
 void ADungeonRoom_CppCharacter::OnResetVR()
 {

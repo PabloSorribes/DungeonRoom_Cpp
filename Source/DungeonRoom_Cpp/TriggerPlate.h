@@ -6,6 +6,7 @@
 #include "TriggerPlate.generated.h"
 
 class UBoxComponent;
+class AMovingWall;
 
 UCLASS()
 class DUNGEONROOM_CPP_API ATriggerPlate : public AActor
@@ -23,9 +24,7 @@ public:
 		UBoxComponent* trigger = nullptr;
 
 	UPROPERTY(EditAnywhere)
-		AActor* door = nullptr;
-		//TODO: Reference instead to my script for moving a door.
-		//AMyCppActor* door = nullptr;
+		AMovingWall* door = nullptr;
 
 	float currentPressure;
 	float requiredPressure = 3.0f;
