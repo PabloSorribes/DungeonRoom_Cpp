@@ -62,15 +62,11 @@ void AMovingWall::CloseDoor()
 
 void AMovingWall::MoveDoor() 
 {
-	//targetLocation = targetLocation + this->GetActorLocation();
-
 	FVector currentLocation = mesh->GetComponentTransform().GetLocation();
 	FVector newLocation = FMath::VInterpTo(currentLocation, targetLocation + this->GetActorLocation(), updateInterval, interpolationSpeed);
-
-	FHitResult* didIMove = nullptr;
 	ETeleportType teleport = ETeleportType::None;
-
-	mesh->SetWorldLocation(newLocation, false, didIMove, teleport);
+	
+	mesh->SetWorldLocation(newLocation, false, nullptr, teleport);
 
 	FVector length = currentLocation - (targetLocation + this->GetActorLocation());
 	float distance = length.Size();
@@ -79,20 +75,7 @@ void AMovingWall::MoveDoor()
 	{
 		GetWorldTimerManager().ClearTimer(openingTimerTick);
 		GetWorldTimerManager().ClearTimer(closingTimerTick);
-
-
-		/*if (openingTimerTick.IsValid())
-		{
-			GetWorldTimerManager().ClearTimer(openingTimerTick);
-		}
-
-		if (openingTimerTick.IsValid())
-		{
-			GetWorldTimerManager().ClearTimer(closingTimerTick);
-		}
-*/
 	}
 
 	UE_LOG(LogTemp, Warning, TEXT("Moving! Distance: %f. GameTime: %f"), distance, GetGameTimeSinceCreation());
-
 }
