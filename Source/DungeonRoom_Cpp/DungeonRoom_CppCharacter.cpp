@@ -142,6 +142,7 @@ void ADungeonRoom_CppCharacter::LineTrace()
 
 	//Get a bool/result to use (true if the object has the Pickup-interface.
 	II_Pickupable* implementsPickup = Cast<II_Pickupable>(hit.GetActor());
+	//bool hasInterface = hit.GetActor()->Implements<UI_Pickupable>();
 
 	//If hitting, change position of endVector
 	if (hit.bBlockingHit && implementsPickup)

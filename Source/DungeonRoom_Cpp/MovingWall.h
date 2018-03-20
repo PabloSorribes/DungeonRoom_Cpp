@@ -16,6 +16,9 @@ public:
 	AMovingWall();
 
 	UPROPERTY(EditAnywhere)
+		USceneComponent* root = nullptr;
+
+	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* mesh = nullptr;
 
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = true))
@@ -29,7 +32,9 @@ public:
 	FTimerHandle closingTimerTick;
 
 	UPROPERTY(EditAnywhere)
-		float interpolationSpeed;
+		float interpolationSpeed = 10.0f;
+
+	float updateInterval = .006f;
 
 protected:
 	// Called when the game starts or when spawned

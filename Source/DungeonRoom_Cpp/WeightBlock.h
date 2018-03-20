@@ -19,6 +19,9 @@ public:
 
 	AWeightBlock();
 
+	/*UPROPERTY(EditAnywhere)
+		UStaticMeshComponent* myMesh = mesh;*/
+
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interface")
 		float GetObjectWeight();
 	virtual float GetObjectWeight_Implementation()override;
