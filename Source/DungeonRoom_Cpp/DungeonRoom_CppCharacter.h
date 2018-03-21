@@ -19,8 +19,8 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 		class UCameraComponent* FollowCamera;
 
 	//Boom to move the object out of the way of walls
-	UPROPERTY(EditAnywhere)
-		USpringArmComponent* springArm = nullptr;
+	//UPROPERTY(EditAnywhere)
+	//	USpringArmComponent* springArm = nullptr;
 
 	//Component to attach held objects to.
 	UPROPERTY(EditAnywhere)

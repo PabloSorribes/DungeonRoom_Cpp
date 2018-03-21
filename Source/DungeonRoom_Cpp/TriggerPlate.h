@@ -56,9 +56,13 @@ public:
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
-		void OnTrapSprung();
+	void OnTrapSprung();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
-		void OnTrapSolved();
+	void OnTrapSolved();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnClasses")
+		void OnTrapSprung_BP();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnClasses")
+		void OnTrapSolved_BP();
 };

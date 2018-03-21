@@ -95,9 +95,13 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 void ATriggerPlate::OnTrapSprung()
 {
 	door->CloseDoor();
+	OnTrapSprung_BP();
 }
 
 void ATriggerPlate::OnTrapSolved()
 {
 	door->OpenDoor();
+	OnTrapSolved_BP();
 }
+
+
