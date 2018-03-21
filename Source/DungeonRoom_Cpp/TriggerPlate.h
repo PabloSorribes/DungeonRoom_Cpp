@@ -17,7 +17,7 @@ public:
 	// Sets default values for this actor's properties
 	ATriggerPlate();
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* mesh = nullptr;
 
 	UPROPERTY(EditAnywhere)
@@ -56,4 +56,7 @@ public:
 	void OpenDoor();
 
 	void CloseDoor();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
+		void OnTrapClosed();
 };

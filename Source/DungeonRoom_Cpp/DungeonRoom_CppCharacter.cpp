@@ -167,6 +167,8 @@ void ADungeonRoom_CppCharacter::PickupObject()
 {
 	hit.GetComponent()->SetSimulatePhysics(false);
 	hit.GetActor()->AttachToComponent(holdingPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+
+	isHoldingObject = true;
 }
 
 void ADungeonRoom_CppCharacter::StopUsing()
@@ -182,10 +184,15 @@ void ADungeonRoom_CppCharacter::DropObject()
 		hit.GetActor()->DetachRootComponentFromParent();
 		hit.GetComponent()->SetSimulatePhysics(true);
 	}
+
+	isHoldingObject = false;
 }
 
 void ADungeonRoom_CppCharacter::Throw()
 {
+	if (!hit.GetActor() || !isHoldingObject) 
+		return;
+
 	DropObject();
 
 	float throwMultiplication = 1000.0f;

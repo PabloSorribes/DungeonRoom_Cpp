@@ -4,8 +4,6 @@
 #include "I_Weight.h"
 #include "MovingWall.h"
 
-
-
 // Sets default values
 ATriggerPlate::ATriggerPlate()
 {
@@ -14,6 +12,7 @@ ATriggerPlate::ATriggerPlate()
 
 	//Adds the actual mesh
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DefaultMesh"));
+	//mesh->SetMaterialByName("M_GreenColor", )
 	RootComponent = mesh;
 
 	trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger"));
@@ -31,8 +30,6 @@ ATriggerPlate::ATriggerPlate()
 void ATriggerPlate::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//startPosition = GetActorTransform().GetLocation();
 }
 
 // Called every frame

@@ -24,6 +24,8 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 
 	FHitResult hit;
 
+	bool isHoldingObject;
+
 public:
 	ADungeonRoom_CppCharacter();
 
