@@ -11,6 +11,33 @@ AWeightBlock::AWeightBlock()
 	PrimaryActorTick.bCanEverTick = true;
 }
 
+void AWeightBlock::BeginPlay()
+{
+	Super::BeginPlay();
+
+	FVector startScale = GetActorRelativeScale3D();
+
+	switch (blockSize)
+	{
+	case EBlockSize::Small:
+		mesh->SetMaterial(0, smallColor);
+		break;
+
+	case EBlockSize::Medium:
+		mesh->SetMaterial(0, middleColor);
+		SetActorRelativeScale3D(startScale * 1.25f);
+		break;
+
+	case EBlockSize::Big:
+		mesh->SetMaterial(0, bigColor);
+		SetActorRelativeScale3D(startScale * 1.50f);
+		break;
+
+	default:
+		break;
+	}
+}
+
 float AWeightBlock::GetObjectWeight_Implementation()
 {
 	return 1.0f;

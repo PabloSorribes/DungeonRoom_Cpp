@@ -29,6 +29,9 @@ public:
 	float currentPressure;
 	float requiredPressure = 3.0f;
 
+	UPROPERTY(EditAnywhere)
+		UMaterialInterface* baseColor = nullptr;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -52,10 +55,6 @@ public:
 			AActor* OtherActor,
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
-
-	void OpenDoor();
-
-	void CloseDoor();
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
 		void OnTrapClosed();

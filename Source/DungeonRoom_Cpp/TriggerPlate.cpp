@@ -12,7 +12,6 @@ ATriggerPlate::ATriggerPlate()
 
 	//Adds the actual mesh
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DefaultMesh"));
-	//mesh->SetMaterialByName("M_GreenColor", )
 	RootComponent = mesh;
 
 	trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger"));
@@ -30,6 +29,8 @@ ATriggerPlate::ATriggerPlate()
 void ATriggerPlate::BeginPlay()
 {
 	Super::BeginPlay();
+
+	mesh->SetMaterial(0, baseColor);
 }
 
 // Called every frame
@@ -77,14 +78,4 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 			door->CloseDoor();
 		}
 	}
-}
-
-void ATriggerPlate::OpenDoor()
-{
-	//TODO: Move towards an openVector
-}
-
-void ATriggerPlate::CloseDoor()
-{
-	//TODO: Move towards original position
 }
