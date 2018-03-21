@@ -41,6 +41,12 @@ void ATriggerPlate::Tick(float DeltaTime)
 
 void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult & SweepResult)
 {
+	if (!door) 
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Door is not set!"));
+		return;
+	}
+
 	UE_LOG(LogTemp, Warning, TEXT("Entering trigger"));
 
 	//Add Weight if implements interface
@@ -59,6 +65,12 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 
 void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * OtherActor, UPrimitiveComponent * OtherComp, int32 OtherBodyIndex)
 {
+	if (!door)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Door is not set!"));
+		return;
+	}
+
 	UE_LOG(LogTemp, Warning, TEXT("Exiting trigger"));
 
 	//Remove Weight when a weight-object leaves the trigger.

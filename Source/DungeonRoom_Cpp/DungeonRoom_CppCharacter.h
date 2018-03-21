@@ -18,6 +18,10 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
 		class UCameraComponent* FollowCamera;
 
+	//Boom to move the object out of the way of walls
+	UPROPERTY(EditAnywhere)
+		USpringArmComponent* springArm = nullptr;
+
 	//Component to attach held objects to.
 	UPROPERTY(EditAnywhere)
 		USceneComponent* holdingPoint = nullptr;

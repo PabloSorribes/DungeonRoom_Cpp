@@ -29,9 +29,13 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 	CreateCameraBoom();
 	CreateFollowCamera();
 
+	//Spring arm
+	springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
+	springArm->SetupAttachment(RootComponent);
+
 	//Holding point
-	holdingPoint = CreateDefaultSubobject<USceneComponent>(TEXT("Holding Point"));
-	holdingPoint->SetupAttachment(RootComponent);
+	holdingPoint = CreateDefaultSubobject<USceneComponent>(TEXT("HoldingPoint"));
+	holdingPoint->SetupAttachment(springArm, USpringArmComponent::SocketName);
 }
 
 void ADungeonRoom_CppCharacter::CreateFollowCamera()
