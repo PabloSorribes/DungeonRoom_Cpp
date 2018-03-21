@@ -35,7 +35,7 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 
 	////Holding point
 	holdingComponent = CreateDefaultSubobject<USceneComponent>(TEXT("HoldingComponent"));
-	//holdingComponent->SetupAttachment(boomArm, USpringArmComponent::SocketName);
+	holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
 
 	//holdingComponent->SetupAttachment(RootComponent);
 
@@ -130,9 +130,9 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 void ADungeonRoom_CppCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	UE_LOG(LogTemp, Warning, TEXT("Setting da pickup point"));
+	//UE_LOG(LogTemp, Warning, TEXT("Setting da pickup point"));
 
-	holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
+	//holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
 }
 
 void ADungeonRoom_CppCharacter::Use()
