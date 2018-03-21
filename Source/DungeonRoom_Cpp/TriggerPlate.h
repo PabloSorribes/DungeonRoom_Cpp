@@ -57,5 +57,8 @@ public:
 			int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
-		void OnTrapClosed();
+		void OnTrapSprung();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "BaseCharacter")
+		void OnTrapSolved();
 };
