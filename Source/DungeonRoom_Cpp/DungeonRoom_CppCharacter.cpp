@@ -132,7 +132,7 @@ void ADungeonRoom_CppCharacter::BeginPlay()
 	Super::BeginPlay();
 	UE_LOG(LogTemp, Warning, TEXT("Setting da pickup point"));
 
-	holdingComponent->SetupAttachment(boomArm, USpringArmComponent::SocketName);
+	holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
 }
 
 void ADungeonRoom_CppCharacter::Use()
@@ -182,6 +182,7 @@ void ADungeonRoom_CppCharacter::LineTrace()
 void ADungeonRoom_CppCharacter::PickupObject()
 {
 	hit.GetComponent()->SetSimulatePhysics(false);
+	hit.GetComponent()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
 	hit.GetActor()->AttachToComponent(holdingComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 
 	isHoldingObject = true;
@@ -199,6 +200,8 @@ void ADungeonRoom_CppCharacter::DropObject()
 	{
 		hit.GetActor()->DetachRootComponentFromParent();
 		hit.GetComponent()->SetSimulatePhysics(true);
+		hit.GetComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+
 	}
 
 	isHoldingObject = false;
