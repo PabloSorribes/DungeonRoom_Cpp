@@ -30,14 +30,15 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 	CreateFollowCamera();
 
 	//Spring arm
-	//springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArm"));
-	//springArm->SetupAttachment(RootComponent);
+	boomArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("BoomArm"));
+	boomArm->SetupAttachment(RootComponent);
 
-	//Holding point
-	holdingPoint = CreateDefaultSubobject<USceneComponent>(TEXT("HoldingPoint"));
-	holdingPoint->SetupAttachment(RootComponent);
+	////Holding point
+	holdingComponent = CreateDefaultSubobject<USceneComponent>(TEXT("HoldingComponent"));
+	//holdingComponent->SetupAttachment(boomArm, USpringArmComponent::SocketName);
 
-	//holdingPoint->SetupAttachment(springArm, USpringArmComponent::SocketName);
+	//holdingComponent->SetupAttachment(RootComponent);
+
 }
 
 void ADungeonRoom_CppCharacter::CreateFollowCamera()
@@ -125,6 +126,15 @@ void ADungeonRoom_CppCharacter::SetupPlayerInputComponent(class UInputComponent*
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &ADungeonRoom_CppCharacter::OnResetVR);
 }
 
+// Called when the game starts or when spawned
+void ADungeonRoom_CppCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	UE_LOG(LogTemp, Warning, TEXT("Setting da pickup point"));
+
+	holdingComponent->SetupAttachment(boomArm, USpringArmComponent::SocketName);
+}
+
 void ADungeonRoom_CppCharacter::Use()
 {
 	LineTrace();
@@ -172,7 +182,7 @@ void ADungeonRoom_CppCharacter::LineTrace()
 void ADungeonRoom_CppCharacter::PickupObject()
 {
 	hit.GetComponent()->SetSimulatePhysics(false);
-	hit.GetActor()->AttachToComponent(holdingPoint, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
+	hit.GetActor()->AttachToComponent(holdingComponent, FAttachmentTransformRules::SnapToTargetNotIncludingScale);
 
 	isHoldingObject = true;
 }

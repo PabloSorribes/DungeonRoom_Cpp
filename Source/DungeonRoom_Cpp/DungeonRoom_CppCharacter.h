@@ -19,12 +19,12 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 		class UCameraComponent* FollowCamera;
 
 	//Boom to move the object out of the way of walls
-	//UPROPERTY(EditAnywhere)
-	//	USpringArmComponent* springArm = nullptr;
-
-	//Component to attach held objects to.
 	UPROPERTY(EditAnywhere)
-		USceneComponent* holdingPoint = nullptr;
+		USpringArmComponent* boomArm = nullptr;
+
+	////Component to attach held objects to.
+	UPROPERTY(EditAnywhere)
+		USceneComponent* holdingComponent = nullptr;
 
 	FHitResult hit;
 
@@ -56,6 +56,8 @@ public:
 	virtual float GetObjectWeight_Implementation()override;
 
 protected:
+
+	virtual void BeginPlay() override;
 
 	void Use();
 
