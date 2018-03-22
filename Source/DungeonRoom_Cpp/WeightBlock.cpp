@@ -21,16 +21,19 @@ void AWeightBlock::BeginPlay()
 	{
 	case EBlockSize::Small:
 		mesh->SetMaterial(0, smallColor);
+		blockWeight = 1.0f;
 		break;
 
 	case EBlockSize::Medium:
 		mesh->SetMaterial(0, middleColor);
 		SetActorRelativeScale3D(startScale * 1.25f);
+		blockWeight = 2.0f;
 		break;
 
 	case EBlockSize::Big:
 		mesh->SetMaterial(0, bigColor);
 		SetActorRelativeScale3D(startScale * 1.50f);
+		blockWeight = 3.0f;
 		break;
 
 	default:
@@ -40,5 +43,5 @@ void AWeightBlock::BeginPlay()
 
 float AWeightBlock::GetObjectWeight_Implementation()
 {
-	return 1.0f;
+	return blockWeight;
 }

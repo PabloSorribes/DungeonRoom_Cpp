@@ -35,6 +35,9 @@ public:
 	UPROPERTY(EditAnywhere)
 		UMaterialInterface* bigColor = nullptr;
 
+	UPROPERTY(EditAnywhere)
+		float blockWeight = 1.0f;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

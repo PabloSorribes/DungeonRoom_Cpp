@@ -42,8 +42,10 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions")
 	void OpenDoor();
 
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions")
 	void CloseDoor();
 
 	void MoveDoor();
