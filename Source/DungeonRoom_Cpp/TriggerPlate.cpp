@@ -58,7 +58,7 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 		if (currentPressure >= requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Weight is success!"));
-			OnTrapSolved();
+			OnTrapSolved_Implementation();
 		}
 	}
 }
@@ -87,7 +87,7 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 		if (currentPressure < requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Too little pressure!"));
-			OnTrapSprung();
+			OnTrapSprung_Implementation();
 		}
 	}
 }
