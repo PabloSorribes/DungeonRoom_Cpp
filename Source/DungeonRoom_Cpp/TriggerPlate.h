@@ -23,7 +23,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		UBoxComponent* trigger = nullptr;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		AMovingWall* door = nullptr;
 
 	float currentPressure;
@@ -56,10 +56,8 @@ public:
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
-	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
 		void OnTrapSprung();
 
-	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
 		void OnTrapSolved();
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
