@@ -30,7 +30,9 @@ public:
 		AMovingWall* door = nullptr;
 
 	float currentPressure;
-	float requiredPressure = 3.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		float requiredPressure = 3.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterialInterface* baseColor = nullptr;

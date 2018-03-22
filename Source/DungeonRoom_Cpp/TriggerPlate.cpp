@@ -32,8 +32,6 @@ ATriggerPlate::ATriggerPlate()
 void ATriggerPlate::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//mesh->SetMaterial(0, baseColor);
 }
 
 // Called every frame
