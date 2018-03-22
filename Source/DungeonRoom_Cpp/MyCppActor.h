@@ -46,15 +46,15 @@ public:
 
 	FVector myVector = FVector(0.f, 0.f, 0.f);
 
-	UFUNCTION(BlueprintPure, Category = "0_OwnClasses|name")
+	UFUNCTION(BlueprintPure, Category = "0_OwnFunctions|name")
 	FString GetFullName();
 
-	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses|name|last")
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions|name|last")
 	void FullName_Print(FString & name);
 
-	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses|name")
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions|name")
 	void SetFullName(FString p_firstName, FString p_lastName);
 	
-	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions")
 	void OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
 };

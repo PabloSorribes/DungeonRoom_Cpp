@@ -40,7 +40,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions")
 		void OnOverlapBegin(
 			UPrimitiveComponent* OverlappedComp, 
 			AActor* OtherActor, 
@@ -49,20 +49,16 @@ public:
 			bool bFromSweep, 
 			const FHitResult& SweepResult);
 
-	UFUNCTION(BlueprintCallable, Category = "0_OwnClasses")
+	UFUNCTION(BlueprintCallable, Category = "0_OwnFunctions")
 		void OnOverlapEnd(
 			UPrimitiveComponent* OverlappedComp,
 			AActor* OtherActor,
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
 	void OnTrapSprung();
 
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
 	void OnTrapSolved();
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnClasses")
-		void OnTrapSprung_BP();
-
-	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnClasses")
-		void OnTrapSolved_BP();
 };
