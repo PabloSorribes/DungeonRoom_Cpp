@@ -77,5 +77,5 @@ void AMovingWall::MoveDoor()
 		GetWorldTimerManager().ClearTimer(closingTimerTick);
 	}
 
-	UE_LOG(LogTemp, Warning, TEXT("Moving! Distance: %f. GameTime: %f"), distance, GetGameTimeSinceCreation());
+	//UE_LOG(LogTemp, Warning, TEXT("Moving! Distance: %f. GameTime: %f"), distance, GetGameTimeSinceCreation());
 }
