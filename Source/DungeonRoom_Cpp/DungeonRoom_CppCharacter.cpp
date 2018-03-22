@@ -89,7 +89,7 @@ void ADungeonRoom_CppCharacter::RotationControl()
 
 float ADungeonRoom_CppCharacter::GetObjectWeight_Implementation()
 {
-	return 1.0f;
+	return characterWeight;
 }
 
 //////////////////////////////////////////////////////////////////////////

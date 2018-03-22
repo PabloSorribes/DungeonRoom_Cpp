@@ -30,6 +30,9 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 
 	bool isHoldingObject;
 
+	UPROPERTY(EditAnywhere)
+		float characterWeight = 2.0f;
+
 public:
 	ADungeonRoom_CppCharacter();
 
