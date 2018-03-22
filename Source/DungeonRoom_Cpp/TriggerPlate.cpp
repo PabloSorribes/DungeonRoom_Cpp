@@ -33,7 +33,7 @@ void ATriggerPlate::BeginPlay()
 {
 	Super::BeginPlay();
 
-	mesh->SetMaterial(0, baseColor);
+	//mesh->SetMaterial(0, baseColor);
 }
 
 // Called every frame
@@ -61,7 +61,7 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 		if (currentPressure >= requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Weight is success!"));
-			OnTrapSolved();
+			ResetTrap();
 		}
 	}
 }
@@ -90,19 +90,17 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 		if (currentPressure < requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Too little pressure!"));
-			OnTrapSprung();
+			TriggerTrap();
 		}
 	}
 }
 
-void ATriggerPlate::OnTrapSolved_Implementation()
+void ATriggerPlate::ResetTrap_Implementation()
 {
 	door->OpenDoor();
-	//Action_OnTrapSolved();
 }
 
-void ATriggerPlate::OnTrapSprung_Implementation()
+void ATriggerPlate::TriggerTrap_Implementation()
 {
 	door->CloseDoor();
-	//Action_OnTrapSprung();
 }

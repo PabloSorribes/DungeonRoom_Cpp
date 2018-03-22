@@ -32,7 +32,7 @@ public:
 	float currentPressure;
 	float requiredPressure = 3.0f;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterialInterface* baseColor = nullptr;
 
 protected:
@@ -59,16 +59,9 @@ public:
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
-	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
-		void OnTrapSolved();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "0_OwnFunctions")
+		void ResetTrap();
 
-	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
-		void OnTrapSprung();
-
-	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "0_OwnFunctions")
-	//	void Action_OnTrapSolved();
-
-	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "0_OwnFunctions")
-	//	void Action_OnTrapSprung();
-
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "0_OwnFunctions")
+		void TriggerTrap();
 };
