@@ -47,7 +47,7 @@ void AMovingWall::OpenDoor()
 
 void AMovingWall::CloseDoor()
 {
-	targetLocation = doorStartPosition;
+	targetLocation = doorClosedPosition;
 
 	if (openingTimerTick.IsValid())
 	{
@@ -71,6 +71,7 @@ void AMovingWall::MoveDoor()
 	FVector length = currentLocation - (targetLocation + this->GetActorLocation());
 	float distance = length.Size();
 
+	//Stop timers when close enough
 	if (distance < 0.1f)
 	{
 		GetWorldTimerManager().ClearTimer(openingTimerTick);

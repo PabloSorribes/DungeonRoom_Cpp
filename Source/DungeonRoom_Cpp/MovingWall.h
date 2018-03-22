@@ -23,7 +23,7 @@ public:
 		FVector doorOpenPosition;
 
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = true))
-		FVector doorStartPosition;
+		FVector doorClosedPosition;
 
 	FVector targetLocation;
 	FTimerHandle openingTimerTick;
