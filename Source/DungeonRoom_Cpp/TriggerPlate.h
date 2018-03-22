@@ -17,6 +17,9 @@ public:
 	// Sets default values for this actor's properties
 	ATriggerPlate();
 
+	UPROPERTY(EditAnywhere)
+		USceneComponent* root = nullptr;
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UStaticMeshComponent* mesh = nullptr;
 
@@ -56,13 +59,16 @@ public:
 			UPrimitiveComponent* OtherComp,
 			int32 OtherBodyIndex);
 
-		void OnTrapSprung();
-
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
 		void OnTrapSolved();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
-		void Action_OnTrapSprung();
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
+		void OnTrapSprung();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
-		void Action_OnTrapSolved();
+	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "0_OwnFunctions")
+	//	void Action_OnTrapSolved();
+
+	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "0_OwnFunctions")
+	//	void Action_OnTrapSprung();
+
 };

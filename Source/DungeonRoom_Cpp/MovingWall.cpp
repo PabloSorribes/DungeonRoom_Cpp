@@ -1,6 +1,8 @@
 #include "MovingWall.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SceneComponent.h"
+#include "TimerManager.h"
+#include "Engine/World.h"
 
 
 // Sets default values

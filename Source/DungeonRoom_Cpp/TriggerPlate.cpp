@@ -10,9 +10,12 @@ ATriggerPlate::ATriggerPlate()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	root = CreateDefaultSubobject<USceneComponent>(TEXT("ROOT"));
+	RootComponent = root;
+
 	//Adds the actual mesh
 	mesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("DefaultMesh"));
-	RootComponent = mesh;
+	mesh->SetupAttachment(root);
 
 	trigger = CreateDefaultSubobject<UBoxComponent>(TEXT("Trigger"));
 	trigger->SetupAttachment(mesh);
@@ -92,16 +95,14 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 	}
 }
 
-void ATriggerPlate::OnTrapSprung()
-{
-	door->CloseDoor();
-	Action_OnTrapSprung();
-}
-
-void ATriggerPlate::OnTrapSolved()
+void ATriggerPlate::OnTrapSolved_Implementation()
 {
 	door->OpenDoor();
-	Action_OnTrapSolved();
+	//Action_OnTrapSolved();
 }
 
-
+void ATriggerPlate::OnTrapSprung_Implementation()
+{
+	door->CloseDoor();
+	//Action_OnTrapSprung();
+}
