@@ -57,8 +57,14 @@ public:
 			int32 OtherBodyIndex);
 
 	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
-	void OnTrapSprung();
+		void OnTrapSprung();
 
 	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
-	void OnTrapSolved();
+		void OnTrapSolved();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
+		void Action_OnTrapSprung();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
+		void Action_OnTrapSolved();
 };
