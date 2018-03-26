@@ -42,6 +42,7 @@ void AMovingWall::OpenDoor()
 		GetWorldTimerManager().ClearTimer(closingTimerTick);
 	}
 
+	//Create "tick"
 	GetWorldTimerManager().SetTimer(openingTimerTick, this, &AMovingWall::MoveDoor, updateInterval, true, 0);
 
 	UE_LOG(LogTemp, Warning, TEXT("Opening Door!"));
