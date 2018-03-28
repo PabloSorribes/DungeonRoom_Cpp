@@ -22,7 +22,6 @@ AMovingWall::AMovingWall()
 void AMovingWall::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -33,7 +32,7 @@ void AMovingWall::Tick(float DeltaTime)
 
 
 
-void AMovingWall::OpenDoor()
+void AMovingWall::OpenDoor_Implementation()
 {
 	targetLocation = doorOpenPosition;
 
@@ -48,7 +47,7 @@ void AMovingWall::OpenDoor()
 	UE_LOG(LogTemp, Warning, TEXT("Opening Door!"));
 }
 
-void AMovingWall::CloseDoor()
+void AMovingWall::CloseDoor_Implementation()
 {
 	targetLocation = doorClosedPosition;
 
@@ -79,6 +78,8 @@ void AMovingWall::MoveDoor()
 	{
 		GetWorldTimerManager().ClearTimer(openingTimerTick);
 		GetWorldTimerManager().ClearTimer(closingTimerTick);
+
+		OnDoorFinishedMoving();
 	}
 
 	//UE_LOG(LogTemp, Warning, TEXT("Moving! Distance: %f. GameTime: %f"), distance, GetGameTimeSinceCreation());
