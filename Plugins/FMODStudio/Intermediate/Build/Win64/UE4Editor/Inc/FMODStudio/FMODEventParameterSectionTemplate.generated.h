@@ -13,7 +13,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define FMODSTUDIO_FMODEventParameterSectionTemplate_generated_h
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Private_Sequencer_FMODEventParameterSectionTemplate_h_14_GENERATED_BODY \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Private_Sequencer_FMODEventParameterSectionTemplate_h_14_GENERATED_BODY \
 	friend FMODSTUDIO_API class UScriptStruct* Z_Construct_UScriptStruct_FFMODEventParameterSectionTemplate(); \
 	FMODSTUDIO_API static class UScriptStruct* StaticStruct(); \
 	FORCEINLINE static uint32 __PPO__Parameters() { return STRUCT_OFFSET(FFMODEventParameterSectionTemplate, Parameters); } \
@@ -21,7 +21,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID HostProject_Plugins_FMODStudio_Source_FMODStudio_Private_Sequencer_FMODEventParameterSectionTemplate_h
+#define CURRENT_FILE_ID DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Private_Sequencer_FMODEventParameterSectionTemplate_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

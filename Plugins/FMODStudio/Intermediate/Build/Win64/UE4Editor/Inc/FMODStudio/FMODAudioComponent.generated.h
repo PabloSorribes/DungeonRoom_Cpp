@@ -14,17 +14,17 @@ class UFMODEvent;
 #endif
 #define FMODSTUDIO_FMODAudioComponent_generated_h
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_84_GENERATED_BODY \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_84_GENERATED_BODY \
 	friend FMODSTUDIO_API class UScriptStruct* Z_Construct_UScriptStruct_FFMODOcclusionDetails(); \
 	FMODSTUDIO_API static class UScriptStruct* StaticStruct();
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_61_GENERATED_BODY \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_61_GENERATED_BODY \
 	friend FMODSTUDIO_API class UScriptStruct* Z_Construct_UScriptStruct_FFMODAttenuationDetails(); \
 	FMODSTUDIO_API static class UScriptStruct* StaticStruct();
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_125_DELEGATE \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_125_DELEGATE \
 struct _Script_FMODStudio_eventOnTimelineBeat_Parms \
 { \
 	int32 Bar; \
@@ -47,7 +47,7 @@ static inline void FOnTimelineBeat_DelegateWrapper(const FMulticastScriptDelegat
 }
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_123_DELEGATE \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_123_DELEGATE \
 struct _Script_FMODStudio_eventOnTimelineMarker_Parms \
 { \
 	FString Name; \
@@ -62,14 +62,14 @@ static inline void FOnTimelineMarker_DelegateWrapper(const FMulticastScriptDeleg
 }
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_121_DELEGATE \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_121_DELEGATE \
 static inline void FOnEventStopped_DelegateWrapper(const FMulticastScriptDelegate& OnEventStopped) \
 { \
 	OnEventStopped.ProcessMulticastDelegate<UObject>(NULL); \
 }
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS \
  \
 	DECLARE_FUNCTION(execSetProgrammerSoundName) \
 	{ \
@@ -220,7 +220,7 @@ static inline void FOnEventStopped_DelegateWrapper(const FMulticastScriptDelegat
 	}
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS_NO_PURE_DECLS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execSetProgrammerSoundName) \
 	{ \
@@ -371,7 +371,7 @@ static inline void FOnEventStopped_DelegateWrapper(const FMulticastScriptDelegat
 	}
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS_NO_PURE_DECLS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFMODAudioComponent(); \
 	friend FMODSTUDIO_API class UClass* Z_Construct_UClass_UFMODAudioComponent(); \
@@ -381,7 +381,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS \
 private: \
 	static void StaticRegisterNativesUFMODAudioComponent(); \
 	friend FMODSTUDIO_API class UClass* Z_Construct_UClass_UFMODAudioComponent(); \
@@ -391,7 +391,7 @@ public: \
 	enum {IsIntrinsic=COMPILED_IN_INTRINSIC};
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_STANDARD_CONSTRUCTORS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_STANDARD_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFMODAudioComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFMODAudioComponent) \
@@ -404,7 +404,7 @@ private: \
 public:
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_ENHANCED_CONSTRUCTORS \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFMODAudioComponent(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()) : Super(ObjectInitializer) { }; \
 private: \
@@ -417,32 +417,32 @@ DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFMODAudioComponent); \
 	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFMODAudioComponent)
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_145_PROLOG
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_GENERATED_BODY_LEGACY \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_145_PROLOG
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_GENERATED_BODY_LEGACY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_STANDARD_CONSTRUCTORS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_STANDARD_CONSTRUCTORS \
 public: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
-#define HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_GENERATED_BODY \
+#define DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS_NO_PURE_DECLS \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS_NO_PURE_DECLS \
-	HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_ENHANCED_CONSTRUCTORS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_PRIVATE_PROPERTY_OFFSET \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_RPC_WRAPPERS_NO_PURE_DECLS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_INCLASS_NO_PURE_DECLS \
+	DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h_148_ENHANCED_CONSTRUCTORS \
 static_assert(false, "Unknown access specifier for GENERATED_BODY() macro in class FMODAudioComponent."); \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID HostProject_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h
+#define CURRENT_FILE_ID DungeonRoom_Cpp_Plugins_FMODStudio_Source_FMODStudio_Classes_FMODAudioComponent_h
 
 
 #define FOREACH_ENUM_EFMODEVENTPROPERTY(op) \
