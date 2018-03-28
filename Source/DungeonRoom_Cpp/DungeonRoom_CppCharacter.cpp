@@ -190,7 +190,10 @@ void ADungeonRoom_CppCharacter::PickupObject()
 
 void ADungeonRoom_CppCharacter::StopUsing()
 {
-	DropObject();
+	if (isHoldingObject)
+	{
+		DropObject();
+	}
 }
 
 
