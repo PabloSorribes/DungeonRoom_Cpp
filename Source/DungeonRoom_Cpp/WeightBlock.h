@@ -35,7 +35,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		UMaterialInterface* bigColor = nullptr;
 
-	UPROPERTY(EditAnywhere)
+	//UPROPERTY(EditAnywhere)
 		float blockWeight = 1.0f;
 
 protected:
