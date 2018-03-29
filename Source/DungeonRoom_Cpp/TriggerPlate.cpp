@@ -34,7 +34,10 @@ void ATriggerPlate::BeginPlay()
 	Super::BeginPlay();
 
 	//Hack to fix the sudden bug of the Weights getting registered twice for some reason.
-	requiredPressure *= 2.0f;
+	if (doubleRequiredPressure)
+	{
+		requiredPressure *= 2.0f;
+	}
 }
 
 // Called every frame
@@ -66,13 +69,13 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 			//FlipFlop for changing the behaviour of a trap.
 			if (openGateOnRequiredPressure)
 			{
-				if (!isGateOpen)
-					ResetTrap();
+				//if(!isGateOpen)
+				ResetTrap();
 			}
 			else
 			{
-				if (isGateOpen)
-					TriggerTrap();
+				//if(isGateOpen)
+				TriggerTrap();
 			}
 		}
 	}
@@ -106,13 +109,13 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 			//FlipFlop for changing the behaviour of a trap.
 			if (openGateOnRequiredPressure)
 			{
-				if (isGateOpen)
-					TriggerTrap();
+				//if(isGateOpen)
+				TriggerTrap();
 			}
 			else
 			{
-				if (!isGateOpen)
-					ResetTrap();
+				//if(!isGateOpen)
+				ResetTrap();
 			}
 		}
 	}

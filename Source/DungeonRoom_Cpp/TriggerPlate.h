@@ -35,6 +35,9 @@ public:
 		float requiredPressure = 3.0f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool doubleRequiredPressure = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterialInterface* baseColor = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

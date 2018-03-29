@@ -1,0 +1,27 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-FMODStudioEditor-725.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\PCH.FMODStudioEditor.h.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\AssetTypeActions_FMODEvent.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODAmbientSoundActorFactory.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODAudioComponentDetails.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODAudioComponentVisualizer.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODEventEditor.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODStudioEditorModule.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODStudioStyle.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\SFMODEventEditorPanel.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODEventControlKeyArea.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODEventControlTrackEditor.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODEventParameterTrackEditor.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODParameterSection.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\SFMODEventControlCurveKeyEditor.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODAmbientSoundActorFactory.gen.cpp.obj"
+"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\FMODStudioEditor.init.gen.cpp.obj"
+"C:\Program Files\Epic Games\UE_4.18\Engine\Intermediate\Build\Win64\UE4Editor\Development\FMODStudioEditor\PCLaunch.rc.res"
+"C:\Program Files\Epic Games\UE_4.18\Engine\Intermediate\Build\Win64\UE4Editor\Development\ModuleVersionResource.rc.inl.res"
+/OUT:"D:\UnrealProjects\DungeonRoom_Cpp\Plugins\FMODStudio\Intermediate\Build\Win64\UE4Editor\Development\UE4Editor-FMODStudioEditor-725.lib"
