@@ -36,7 +36,7 @@ void ATriggerPlate::BeginPlay()
 	//Hack to fix the sudden bug of the Weights getting registered twice for some reason.
 	if (doubleRequiredPressure)
 	{
-		requiredPressure *= 2.0f;
+		//requiredPressure *= 2.0f;
 	}
 }
 
