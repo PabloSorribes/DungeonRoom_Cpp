@@ -43,9 +43,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		bool openGateOnRequiredPressure = true;
 
-	//Check for not double triggering the audio
-	bool isGateOpen;
-
 
 protected:
 	// Called when the game starts or when spawned
