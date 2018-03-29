@@ -66,13 +66,16 @@ protected:
 
 	void StopUsing();
 
-	void Throw();
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
+		void Throw();
 
 	void LineTrace();
 
-	void PickupObject();
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
+		void PickupObject();
 
-	void DropObject();
+	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
+		void DropObject();
 
 	/** Resets HMD orientation in VR. */
 	void OnResetVR();

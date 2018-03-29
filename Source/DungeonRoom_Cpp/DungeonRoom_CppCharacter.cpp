@@ -179,7 +179,7 @@ void ADungeonRoom_CppCharacter::LineTrace()
 	DrawDebugLine(GetWorld(), hit.TraceStart, endVector, traceColor, false, 10.0f, 0, 10.0f);
 }
 
-void ADungeonRoom_CppCharacter::PickupObject()
+void ADungeonRoom_CppCharacter::PickupObject_Implementation()
 {
 	hit.GetComponent()->SetSimulatePhysics(false);
 	hit.GetComponent()->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
@@ -197,7 +197,7 @@ void ADungeonRoom_CppCharacter::StopUsing()
 }
 
 
-void ADungeonRoom_CppCharacter::DropObject()
+void ADungeonRoom_CppCharacter::DropObject_Implementation()
 {
 	if (hit.GetActor())
 	{
@@ -210,7 +210,7 @@ void ADungeonRoom_CppCharacter::DropObject()
 	isHoldingObject = false;
 }
 
-void ADungeonRoom_CppCharacter::Throw()
+void ADungeonRoom_CppCharacter::Throw_Implementation()
 {
 	if (!hit.GetActor() || !isHoldingObject) 
 		return;

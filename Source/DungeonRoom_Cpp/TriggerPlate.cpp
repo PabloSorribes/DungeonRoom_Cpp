@@ -66,11 +66,13 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 			//FlipFlop for changing the behaviour of a trap.
 			if (openGateOnRequiredPressure)
 			{
-				ResetTrap();
+				if (!isGateOpen)
+					ResetTrap();
 			}
 			else
 			{
-				TriggerTrap();
+				if (isGateOpen)
+					TriggerTrap();
 			}
 		}
 	}
@@ -104,11 +106,13 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 			//FlipFlop for changing the behaviour of a trap.
 			if (openGateOnRequiredPressure)
 			{
-				TriggerTrap();
+				if (isGateOpen)
+					TriggerTrap();
 			}
 			else
 			{
-				ResetTrap();
+				if (!isGateOpen)
+					ResetTrap();
 			}
 		}
 	}
@@ -116,10 +120,12 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 
 void ATriggerPlate::ResetTrap_Implementation()
 {
+	isGateOpen = true;
 	door->OpenDoor();
 }
 
 void ATriggerPlate::TriggerTrap_Implementation()
 {
+	isGateOpen = false;
 	door->CloseDoor();
 }
