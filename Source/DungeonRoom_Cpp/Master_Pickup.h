@@ -18,7 +18,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		UStaticMeshComponent* mesh = nullptr;
 
-	UPROPERTY(EditAnywhere)
+	//UPROPERTY(EditAnywhere)
 		float weight = 1.0f;
 
 	//Variable to keep track if the object is being picked up right now.
