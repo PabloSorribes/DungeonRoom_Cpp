@@ -16,6 +16,9 @@ AWeightBlock::AWeightBlock()
 void AWeightBlock::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//The Weight-float is not set by the call in the construction script for some reason. Have to hax it here.
+	SetWeight();
 }
 
 ///<summary>
