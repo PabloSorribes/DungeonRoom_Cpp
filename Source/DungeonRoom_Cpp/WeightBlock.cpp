@@ -9,14 +9,20 @@ AWeightBlock::AWeightBlock()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+	startScale = GetActorRelativeScale3D();
 }
 
 void AWeightBlock::BeginPlay()
 {
 	Super::BeginPlay();
 
-	FVector startScale = GetActorRelativeScale3D();
+}
 
+///<summary>
+///Is called by construction script in Blueprint
+///</summary>
+void AWeightBlock::SetWeight_Implementation()
+{
 	switch (blockSize)
 	{
 	case EBlockSize::Small:

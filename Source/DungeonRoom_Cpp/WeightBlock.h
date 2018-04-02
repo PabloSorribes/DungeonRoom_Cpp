@@ -37,11 +37,16 @@ public:
 
 	float blockWeight = 1.0f;
 
+	FVector startScale;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:
+
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "0_OwnFunctions")
+		void SetWeight();
 
 	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category = "Interface")
 		float GetObjectWeight();
