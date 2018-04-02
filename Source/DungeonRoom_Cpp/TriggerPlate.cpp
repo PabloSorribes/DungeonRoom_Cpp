@@ -60,15 +60,27 @@ void ATriggerPlate::OnOverlapBegin(UPrimitiveComponent * OverlappedComp, AActor 
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Weight is success!"));
 
-			//Switch for changing the behaviour of a trap.
-			if (openGateOnRequiredPressure)
+			switch (solvedBehaviour)
 			{
+			case ESolvedBehaviour::OpenGate:
 				ResetTrap();
-			}
-			else
-			{
+				break;
+			case ESolvedBehaviour::CloseGate:
 				TriggerTrap();
+				break;
+			default:
+				break;
 			}
+
+			//Switch for changing the behaviour of a trap.
+			//if (openGateOnRequiredPressure)
+			//{
+			//	ResetTrap();
+			//}
+			//else
+			//{
+			//	TriggerTrap();
+			//}
 		}
 	}
 }
@@ -94,19 +106,32 @@ void ATriggerPlate::OnOverlapEnd(UPrimitiveComponent * OverlappedComp, AActor * 
 
 		UE_LOG(LogTemp, Warning, TEXT("CurrentPressure: %f. RequiredPressure: %f"), currentPressure, requiredPressure);
 
+		//Solve Gate-condition is not met. Reset the trap to its original location.
 		if (currentPressure < requiredPressure)
 		{
 			UE_LOG(LogTemp, Warning, TEXT("Too little pressure!"));
 
 			//Switch for changing the behaviour of a trap.
-			if (openGateOnRequiredPressure)
+			switch (solvedBehaviour)
 			{
+			case ESolvedBehaviour::OpenGate:
 				TriggerTrap();
-			}
-			else
-			{
+				break;
+			case ESolvedBehaviour::CloseGate:
 				ResetTrap();
+				break;
+			default:
+				break;
 			}
+
+			//if (openGateOnRequiredPressure)
+			//{
+			//	TriggerTrap();
+			//}
+			//else
+			//{
+			//	ResetTrap();
+			//}
 		}
 	}
 }

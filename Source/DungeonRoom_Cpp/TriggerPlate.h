@@ -8,6 +8,13 @@
 class UBoxComponent;
 class AMovingWall;
 
+UENUM(BlueprintType)
+enum class ESolvedBehaviour : uint8
+{
+	OpenGate UMETA(DisplayName = "Open Gate"),
+	CloseGate UMETA(DisplayName = "Close Gate"),
+};
+
 UCLASS()
 class DUNGEONROOM_CPP_API ATriggerPlate : public AActor
 {
@@ -33,6 +40,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		float requiredPressure = 3.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Enum)
+		ESolvedBehaviour solvedBehaviour;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		UMaterialInterface* baseColor = nullptr;
