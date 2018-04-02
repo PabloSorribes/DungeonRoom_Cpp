@@ -37,6 +37,7 @@ ADungeonRoom_CppCharacter::ADungeonRoom_CppCharacter()
 	holdingComponent = CreateDefaultSubobject<USceneComponent>(TEXT("HoldingComponent"));
 	holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
 
+	//TODO: This doesn't work for some reason.
 	//holdingComponent->SetupAttachment(RootComponent);
 
 }
@@ -131,7 +132,6 @@ void ADungeonRoom_CppCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 	//UE_LOG(LogTemp, Warning, TEXT("Setting da pickup point"));
-
 	//holdingComponent->AttachTo(boomArm, USpringArmComponent::SocketName);
 }
 
@@ -204,7 +204,6 @@ void ADungeonRoom_CppCharacter::DropObject_Implementation()
 		hit.GetActor()->DetachRootComponentFromParent();
 		hit.GetComponent()->SetSimulatePhysics(true);
 		hit.GetComponent()->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
-
 	}
 
 	isHoldingObject = false;

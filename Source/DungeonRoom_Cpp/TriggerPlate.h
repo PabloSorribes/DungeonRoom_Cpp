@@ -80,4 +80,8 @@ public:
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "0_OwnFunctions")
 		void TriggerTrap();
+
+	void SolvedTrapAction();
+
+	void FailedTrapAction();
 };

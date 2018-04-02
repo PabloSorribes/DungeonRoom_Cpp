@@ -22,7 +22,7 @@ class ADungeonRoom_CppCharacter : public ACharacter, public II_Weight
 	UPROPERTY(EditAnywhere)
 		USpringArmComponent* boomArm = nullptr;
 
-	////Component to attach held objects to.
+	//Component to attach held objects to.
 	UPROPERTY(EditAnywhere)
 		USceneComponent* holdingComponent = nullptr;
 

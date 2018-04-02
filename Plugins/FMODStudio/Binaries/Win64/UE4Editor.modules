@@ -2,7 +2,7 @@
 	"BuildId": "3709383",
 	"Modules": 
 	{
-		"FMODStudio": "UE4Editor-FMODStudio-4407.dll",
-		"FMODStudioEditor": "UE4Editor-FMODStudioEditor-8812.dll"
+		"FMODStudio": "UE4Editor-FMODStudio.dll",
+		"FMODStudioEditor": "UE4Editor-FMODStudioEditor.dll"
 	}
 }
