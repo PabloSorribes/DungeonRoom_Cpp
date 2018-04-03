@@ -208,7 +208,7 @@ void ADungeonRoom_CppCharacter::DropObject_Implementation()
 	isHoldingObject = false;
 }
 
-void ADungeonRoom_CppCharacter::Throw_Implementation()
+void ADungeonRoom_CppCharacter::Throw()
 {
 	if (!hit.GetActor() || !isHoldingObject) 
 		return;
@@ -219,6 +219,8 @@ void ADungeonRoom_CppCharacter::Throw_Implementation()
 	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication;
 
 	hit.GetComponent()->AddImpulse(impulseDirection, NAME_None, true);
+
+	ThrowAudio();
 }
 
 

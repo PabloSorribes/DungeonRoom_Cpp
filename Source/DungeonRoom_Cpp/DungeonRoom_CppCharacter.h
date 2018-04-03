@@ -66,8 +66,10 @@ protected:
 
 	void StopUsing();
 
-	UFUNCTION(BlueprintNativeEvent, Category = "0_OwnFunctions")
-		void Throw();
+	void Throw();
+
+	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
+		void ThrowAudio();
 
 	void LineTrace();
 
