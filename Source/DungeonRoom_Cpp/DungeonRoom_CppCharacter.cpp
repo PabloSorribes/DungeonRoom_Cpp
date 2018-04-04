@@ -216,8 +216,8 @@ void ADungeonRoom_CppCharacter::Throw()
 	DropObject();
 
 	float throwMultiplication = 900.0f;
-	FVector impulseAddUpward = FVector(0.0f, 0.0f, 400.0f);
-	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication + impulseAddUpward;
+	FVector additionalUpwardImpulse = FVector(0.0f, 0.0f, 400.0f);
+	FVector impulseDirection = FollowCamera->GetForwardVector() * throwMultiplication + additionalUpwardImpulse;
 
 	hit.GetComponent()->AddImpulse(impulseDirection, NAME_None, true);
 
