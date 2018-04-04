@@ -16,7 +16,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		USceneComponent* root = nullptr;
 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		UStaticMeshComponent* mesh = nullptr;
 
 	UPROPERTY(EditAnywhere, meta = (MakeEditWidget = true))

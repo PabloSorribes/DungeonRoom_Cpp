@@ -15,7 +15,7 @@ class DUNGEONROOM_CPP_API AMaster_Pickup : public AActor, public II_Pickupable
 public:	
 	// Sets default values for this actor's properties
 	AMaster_Pickup();
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, BlueprintReadOnly)
 		UStaticMeshComponent* mesh = nullptr;
 
 	//UPROPERTY(EditAnywhere)
