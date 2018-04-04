@@ -31,6 +31,7 @@ void AWeightBlock::SetWeight_Implementation()
 	{
 	case EBlockSize::Small:
 		mesh->SetMaterial(0, smallColor);
+		SetActorRelativeScale3D(startScale * 1.0f);
 		blockWeight = 1.0f;
 		break;
 

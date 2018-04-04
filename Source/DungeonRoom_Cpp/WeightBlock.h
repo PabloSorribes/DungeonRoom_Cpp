@@ -35,6 +35,7 @@ public:
 	UPROPERTY(EditAnywhere)
 		UMaterialInterface* bigColor = nullptr;
 
+	UPROPERTY(BlueprintReadOnly)
 	float blockWeight = 1.0f;
 
 	FVector startScale;
