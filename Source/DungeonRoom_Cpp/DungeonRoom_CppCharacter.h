@@ -68,6 +68,7 @@ protected:
 
 	void Throw();
 
+	//For being called in Blueprint only when a Throw is successful
 	UFUNCTION(BlueprintImplementableEvent, Category = "0_OwnFunctions")
 		void ThrowAudio();
 
