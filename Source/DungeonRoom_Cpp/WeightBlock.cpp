@@ -12,11 +12,6 @@ AWeightBlock::AWeightBlock()
 	startScale = GetActorRelativeScale3D();
 }
 
-void AWeightBlock::BeginPlay()
-{
-	Super::BeginPlay();
-}
-
 ///<summary>
 ///Is called by construction script in Blueprint
 ///</summary>
