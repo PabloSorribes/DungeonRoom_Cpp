@@ -10,16 +10,11 @@ AWeightBlock::AWeightBlock()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	startScale = GetActorRelativeScale3D();
-
-	SetWeight();
 }
 
 void AWeightBlock::BeginPlay()
 {
 	Super::BeginPlay();
-
-	//The Weight-float is not set by the call in the construction script for some reason. Have to hax it here.
-	SetWeight();
 }
 
 ///<summary>
